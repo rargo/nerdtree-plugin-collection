@@ -3,7 +3,7 @@ if exists("g:loaded_nerdtree_ctrlp")
 endif
 let g:loaded_nerdtree_ctrlp = 1
 
-call NERDTreeAddMenuItem({'text': 'ctrl(p)', 'shortcut': 'p', 'callback': 'NERDTreeCallCtrlp'})
+call NERDTreeAddMenuItem({'text': '(p) ctrlp', 'shortcut': 'p', 'callback': 'NERDTreeCallCtrlp'})
 "call NERDTreeAddKeyMap({
     "\ 'key': 'sh',
     "\ 'callback': 'NERDTreeCallSh',
