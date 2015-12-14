@@ -12,6 +12,7 @@ endif
 let g:loaded_nerdtree_shell_exec_menuitem = 1
 let s:haskdeinit = system("ps -e") =~ 'kdeinit'
 let s:hasdarwin = system("uname -s") =~ 'Darwin'
+let s:hascygwin = system("uname -s") =~ "CYGWIN.*"
 
 call NERDTreeAddMenuItem({
       \ 'text': '(o)pen',
@@ -28,7 +29,10 @@ function! NERDTreeOpen()
     let args = shellescape(path,1)." > /dev/null"
   end
 
-  if has("unix") && executable("gnome-open") && !s:haskdeinit
+  if s:hascygwin == 1
+    "exe "silent !start explorer ".shellescape(path,1)
+    exe "silent !cmd /c start cygstart ".shellescape(path,1)
+  elseif has("unix") && executable("gnome-open") && !s:haskdeinit
     exe "silent !gnome-open ".args
     let ret= v:shell_error
   elseif has("unix") && executable("kde-open") && s:haskdeinit
@@ -38,6 +42,7 @@ function! NERDTreeOpen()
     exe "silent !open ".args
     let ret= v:shell_error
   elseif has("win32") || has("win64")
+    "exe "silent !start explorer ".shellescape(path,1)
     exe "silent !start explorer ".shellescape(path,1)
   end
   redraw!
