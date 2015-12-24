@@ -47,11 +47,11 @@ function! NERDTreeCallSh()
 	let old_pwd = getcwd()
 	let new_pwd = ""
     if !currentNode.path.isDirectory
-		execute "cd " . GetFileDir(currentNode.path.str())
 		let new_pwd = GetFileDir(currentNode.path.str())
+		execute "cd " . new_pwd
 	else 
-		execute "cd " . currentNode.path.str()
 		let new_pwd = currentNode.path.str()
+		execute "cd " . new_pwd
     endif
 	"echo getcwd()
 	"try

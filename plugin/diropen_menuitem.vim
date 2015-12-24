@@ -18,23 +18,6 @@ function! NERDTreeFileDirectoryActive()
 	return 1
 endfunction
 
-func! s:GetFileDir(filename)
-	if a:filename == "%" "special,'%' means current file
-		let current_file = getreg('%')
-	else 
-		let current_file = a:filename
-	endif
-
-	let last_slash = strridx(current_file, "/")
-	if last_slash != -1
-		let current_dir = strpart(current_file, 0, last_slash+1)
-	else
-		let current_dir = "./"
-	endif
-	"echo current_dir
-	return current_dir
-endfunc
-
 function! NERDTreeFileDirectory()
   let node = g:NERDTreeFileNode.GetSelected()
   let path = node.path.str()
@@ -42,7 +25,7 @@ function! NERDTreeFileDirectory()
   "echom  path
 
   "let dir = GetFileDir(path)
-  let dir = s:GetFileDir(path)
+  let dir = GetFileDir(path)
   "echom "dir is "
   "echom dir
 
