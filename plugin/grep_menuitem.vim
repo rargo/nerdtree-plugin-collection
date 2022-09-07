@@ -4,7 +4,7 @@ endif
 let g:loaded_nerdtree_grep_menuitem = 1
 
 call NERDTreeAddMenuItem({
-            \ 'text': '(g)rep',
+            \ 'text': '(g) grep',
             \ 'shortcut': 'g',
             \ 'callback': 'NERDTreeSearchFile',
             \ 'isActiveCallback': 'NERDTreeSearchFileActive' })
