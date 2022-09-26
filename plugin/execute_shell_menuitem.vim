@@ -40,14 +40,14 @@ function! NERDTreeCallSh()
 					\ " Execute Shell\n" .
 					\ " % will be replace as current directory: \n  " . currentNode.path.str() . "\n" .
 					\ "==============================================================\n".
-					\ "Enter command:" .
+					\ "Enter command: " .
 					\ "")
 	else
 		let word_and_option = input("==============================================================\n".
 					\ " Execute Shell\n" .
 					\ " % will be replace as current file: \n  " .  currentNode.path.str() . "\n" .
 					\ "==============================================================\n".
-					\ "Enter command:" .
+					\ "Enter command: " .
 					\ "")
 	endif
 
